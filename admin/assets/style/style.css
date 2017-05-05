@@ -1,0 +1,94 @@
+html, body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+	background-image:url(../images/back_image.png);
+}
+
+	
+.header{
+	background:url(../images/bg_pattern1.png);
+	height:250px;	
+	margin-top:0px;
+	}
+	
+.header_line{
+	background:#96070d;
+	height:30px;
+	width:100%;
+	}
+
+.wrapper{
+    height:100px;
+	width:591px;
+    margin:0 auto;
+	}
+	
+.login_box{
+	background-image:url(../images/log1.png) ; background-repeat:no-repeat;
+	height:224px;
+	margin-top:-80px;
+	}
+	
+	
+.log_form ul{ 
+	font-style:normal;
+	color:#06F;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+	list-style:none;
+	padding:20px;
+	text-align:center;
+	font-weight:bold;
+	}
+
+.log_form ul li{
+	list-style:none;
+	float:left;
+	width:200px;
+	height:30px;
+	margin:10px;
+	}
+
+.log_form ul li label{
+	text-align:center;
+	}
+	
+.log_form ul li input[type="text"], input[type="password"], input:focus {
+	width:300px;
+	height:30px;
+	background-color:#e9e8e4;
+	font-size:24px;
+	color:#333;	
+	}
+
+.log_form ul li input[type="submit"],#report{
+	width:100px;
+	height:30px;
+	margin-left:218px;
+	border-radius: 10px 10px 10px 10px;
+	background:url(../images/bg_pattern1.png);
+	border:medium #333;
+	color:#FFF;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:14px;
+	}
+	
+.log_form a span{
+	font-size:12px;
+	color:#06C;
+	padding-left:450px;
+	align:right;
+	}
+	#span_id
+	{
+		font-size:80px;
+		margin-top:10px;
+		margin-left:420px;
+		font-family:'Lucida Console', Monaco, monospace;
+		color:#FFF;
+		font-stretch:condensed;
+		font-stretch:wider;
+		font-weight:bolder;
+		
+	}

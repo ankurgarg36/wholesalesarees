@@ -1,0 +1,107 @@
+
+html, body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+	background-color:#fff;
+}
+
+
+.table_box{
+	margin: 0 0 10px 340px;
+	 width: 950px;
+	}
+
+table_box{
+	width:500px;
+	}		
+table{
+	border:#96070D  solid 8px;
+	border-radius:10px;
+	width:70%;
+	}
+
+thead , tfoot{
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:14px;
+	background-color:#FFC;
+	color:#96070D;
+	border-bottom:#96070D solid;
+	}
+
+th{
+	height:40px;
+	width:60px;	
+	}
+	
+td{
+	padding:5px;
+	text-align:center;
+	
+	}	
+	
+
+p{
+	font-family:"Arial Black", Gadget, sans-serif;
+	font-size:1em;
+	color:#333333;	
+	}	
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables row classes
+
+*/
+
+tr.odd {
+	background-color: #E2E4FF;
+}
+
+tr.even {
+	background-color: white;
+}
+
+select
+{
+	width:155px;height:25px;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables features
+*/
+
+.dataTables_length {
+	width: 40%;
+	margin-bottom:-20px;
+	font-family:"Arial Black", Gadget, sans-serif;
+	font-size:1em;
+	color:#96070D;
+}
+
+.dataTables_filter {
+	width: 50%;
+	margin-bottom:13px;
+	text-align: right;
+	font-family:"Arial Black", Gadget, sans-serif;
+	font-size:1em;
+	color:#96070D;
+}
+
+.dataTables_info {
+	width: 87%;
+	float: left;
+	margin-top: 5px;
+	font-family:"Arial Black", Gadget, sans-serif;
+	font-size:1em;
+	color:#96070D;
+}
+
+.paginate_disabled_previous, .paginate_enabled_previous,
+.paginate_disabled_next, .paginate_enabled_next {
+	height: 19px;
+	float: left;
+	cursor: pointer;
+	*cursor: hand;
+	margin-top: 5px;
+	font-family:"Arial Black", Gadget, sans-serif;
+	font-size:1em;
+	color:#96070D;
+}
+ 

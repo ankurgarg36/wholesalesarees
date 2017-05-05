@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{background-color:#FFFBF0}
+ol,ul{list-style:none}
+
+.button{
+	background:#72b52a;
+	width:70px;
+	height:36px;
+	border-radius:30px;
+	margin-left: 882px;
+	box-shadow:0 2px 3px rgba(0,0,0,0.3);
+	}
+
+.button.small{
+	color: #96070D;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    line-height: 35px;
+    padding: 0 10px 0 9px;
+    text-decoration: blink;
+	}
+
+.button.b-close{border-radius:7px 7px 7px 7px;valign:top;box-shadow:none;font:bold 131% sans-serif;padding:0 6px 2px;position:absolute;right:-7px;top:-7px}
+
+
+#popup,#popup2,.bMulti{background-color:#FFFBF0;border-radius:10px;box-shadow:0 0 25px 5px #999;color:#111;display:none;min-width:450px;padding:25px; 
+	border:#96070D solid;}
+
+/*
+#popup,#popup2,.bMulti{background-color:#FFFBF0;box-shadow:0 0 25px 5px #999;border-radius:10px;min-width:450px;padding:25px;
+	width:550px;
+	background-color:#FFC;
+	padding:25px;}
+
+*/
+<!-- ADD FORM styling starts -->
+
+
+.form_box{
+	margin:0 auto;
+	width:550px;
+	background-color:#FFC;
+	border:#96070D solid;
+	padding:25px;
+	}
+
+.form_box ul li{
+	height:50px;
+	width:500px;
+	margin-bottom:5px;
+	}
+
+ul li label{
+	font-family:"Comic Sans MS", cursive;
+	font-size:16px;
+	float:left;
+	color:#96070D;
+	width:180px;
+	 line-height: 30px;
+	}
+ ul li input[type="text"]{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:14px;
+	color:#96070D;
+	margin-bottom:5px;
+	font-weight:normal;
+	}
+	
+ul li input{
+	float:right;
+	border: 5px solid white;
+	box-shadow: inset 0 0 8px  rgba(0,0,0,0.1),0 0 16px rgba(0,0,0,0.1); 
+    padding: 5px;
+    background: rgba(255,255,255,0.5);   
+	width:300px;
+	}
+ input[type="submit"]{
+	width:100px;
+	border-radius: 10px 10px 10px 10px;
+	background:#96070d;
+	border:medium #333;
+	color:#FFF;
+	font-family:Verdana, Geneva, sans-serif;
+	margin-left:300px;
+	 height:30px;
+	font-size:16px;font-weight:bold;
+	padding-bottom:5px;
+	}
+<!--ADD FORM styling ends -->
