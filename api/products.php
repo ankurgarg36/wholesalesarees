@@ -13,8 +13,8 @@
 			$q ="SELECT * FROM ".$table."";	
 		}else{
 			$q ="SELECT * FROM ".$table." LIMIT 10";
-		}
-		
+		}	
+	
 		$q_s=mysql_query($q);
 		while($q_saree=mysql_fetch_array($q_s)){
 		$saree = [

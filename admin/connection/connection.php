@@ -1,8 +1,8 @@
 <?PHP
 $localhost="localhost";
 $user="root";
-$pass="";
+$pass="root";
 $database="bhawana_sarees";
-$link=mysql_connect("localhost",$user,$pass) or die("not connected ") ;
+$link=@mysql_connect("localhost",$user,$pass) or die("not connected ") ;
 mysql_select_db('bhawana_sarees') or die("could not connect to the database");
 ?>
