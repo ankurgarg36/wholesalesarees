@@ -1,6 +1,13 @@
 <?php
-		error_reporting('off');
+
+//	error_reporting('on');
+
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL^E_DEPRECATED);
+//echo date('y-m-d');die;
 setlocale(LC_MONETARY, 'en_IN');		
+
 		include('admin/connection/connection.php');
 		include('function/functioncall.php');
 		$fnc=new functioncall();
