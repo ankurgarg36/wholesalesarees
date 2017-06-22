@@ -4,18 +4,21 @@
 		include('../function/functioncall.php');
 		$category = $_REQUEST['category'];
 		$limit = $_REQUEST['limit'];
+		$page = $_REQUEST['page'];
 		if(empty($category)){
 		return null;	
 		}
 		$response = array();
 		$table = sprintf("tbl_%s",$category);
-		if(empty($limit)){
-			$q ="SELECT * FROM ".$table."";	
+		if(empty($limit) || empty($page)){
+			$q ="SELECT * FROM ".$table;
 		}else{
-			$q ="SELECT * FROM ".$table." LIMIT 10";
-		}	
-	
-		$q_s=mysql_query($q);
+			$startFrom = ($page-1)*$limit;
+			$q ="SELECT * FROM ".$table." LIMIT ".$startFrom.",".$limit;
+		}
+		$count = mysql_fetch_row(mysql_query("SELECT count(*) FROM ".$table));
+		$total_records = $count[0];
+$q_s=mysql_query($q);
 		while($q_saree=mysql_fetch_array($q_s)){
 		$saree = [
 				"id"=>$q_saree['id'],
@@ -33,8 +36,9 @@
 				array_push($response,$saree);
 			}
 
-	$result['data']=$response;	
-	echo json_encode($result);				
+	$result['totalRecords']=$total_records;
+	$result['data']=$response;
+	echo json_encode($result);
 				
 				
    function getCleanUrl($str, $replace=array(), $delimiter='-'){
