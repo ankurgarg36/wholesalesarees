@@ -30,7 +30,9 @@
 				"purpose"=>$q_saree['purpose'],
 				"detail"=>$q_saree['description'],
 				"imagePath" =>sprintf("%s/%s",$_SERVER['HTTP_HOST'],$q_saree['path_to_file']),
-				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($q_saree['title']),$q_saree['product_code'])
+				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($q_saree['title']),$q_saree['product_code']),
+				"quantity" => 1,
+
 				];
 	$response['pd'] = $saree;
 		
