@@ -1,6 +1,9 @@
 <div class="container_12">
     <div class="grid_9">
       <h3>Stay in Touch</h3>
+<?php echo $_SERVER['HTTP_HOST']; ?>
+<?php echo $_SERVER['SERVER_NAME'];echo gethostname(); ?>
+
             <div class="map">
             <figure class="img_inner fleft">
                           <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=203713593458754817008.0004ee93021186694bc6a&amp;ie=UTF8&amp;t=m&amp;ll=28.570813,77.326112&amp;spn=0.013191,0.018282&amp;z=15&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=203713593458754817008.0004ee93021186694bc6a&amp;ie=UTF8&amp;t=m&amp;ll=28.570813,77.326112&amp;spn=0.013191,0.018282&amp;z=15&amp;source=embed" style="color:#0000FF;text-align:left">28.551957, 77.388954</a> in a larger map</small>

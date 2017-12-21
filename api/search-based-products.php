@@ -46,7 +46,7 @@
 				"price"=>$q_saree['price'],
 				"purpose"=>$q_saree['purpose'],
 				"detail"=>$q_saree['description'],
-				"imagePath" =>sprintf("%s/%s",$_SERVER['HTTP_HOST'],$q_saree['path_to_file']),
+				"imagePath" =>sprintf("%s%s",HOST,$q_saree['path_to_file']),
 				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($q_saree['title']),$q_saree['product_code'])
 				];
 				array_push($response,$saree);

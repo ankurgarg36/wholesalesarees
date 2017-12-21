@@ -8,7 +8,7 @@
 				"categoryTitle"=>'saree',
 				"productTitle"=>$q_saree['title'],
 				"detail"=>$q_saree['description'],
-				"imagePath" =>sprintf("%s/%s",$_SERVER['HTTP_HOST'],$q_saree['path_to_file']),
+				"imagePath" =>sprintf("%s%s",HOST,$q_saree['path_to_file']),
 				"url"=>sprintf('/product/saree/%s/%s',getCleanUrl($q_saree['title']),$q_saree['product_code'])
 				];
 		$q_suit=mysql_fetch_array(mysql_query("SELECT * FROM tbl_suit where id=(SELECT max(id) from tbl_suit)"));						
@@ -17,7 +17,7 @@
 				"categoryTitle"=>'Suit Salwar',
 				"productTitle"=>$q_suit['title'],
 				"detail"=>$q_suit['description'],
-				"imagePath" =>sprintf("%s/%s",$_SERVER['HTTP_HOST'],$q_suit['path_to_file']),
+				"imagePath" =>sprintf("%s%s",HOST,$q_suit['path_to_file']),
 				"url"=>sprintf('/product/suit/%s/%s',getCleanUrl($q_suit['title']),$q_suit['product_code'])
 				];		
 		$q_lengha=mysql_fetch_array(mysql_query("SELECT * FROM tbl_lengha where id=(SELECT max(id) from tbl_lengha)"));		
@@ -26,7 +26,7 @@
 				"categoryTitle"=>'lengha',
 				"productTitle"=>$q_lengha['title'],
 				"detail"=>$q_lengha['description'],
-				"imagePath" =>sprintf("%s/%s",$_SERVER['HTTP_HOST'],$q_lengha['path_to_file']),
+				"imagePath" =>sprintf("%s%s",HOST,$q_lengha['path_to_file']),
 				"url"=>sprintf('/product/lengha/%s/%s',getCleanUrl($q_lengha['title']),$q_lengha['product_code'])
 				];		
 	$response = array();

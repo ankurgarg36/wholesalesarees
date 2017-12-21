@@ -29,7 +29,7 @@
 				"price"=>$q_saree['price'],
 				"purpose"=>$q_saree['purpose'],
 				"detail"=>$q_saree['description'],
-				"imagePath" =>sprintf("%s/%s",$_SERVER['HTTP_HOST'],$q_saree['path_to_file']),
+				"imagePath" =>sprintf("%s%s",HOST,$q_saree['path_to_file']),
 				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($q_saree['title']),$q_saree['product_code']),
 				"quantity" => 1,
 
@@ -53,7 +53,7 @@
 				"price"=>$res['price'],
 				"purpose"=>$res['purpose'],
 				"detail"=>$res['description'],
-				"imagePath" =>sprintf("%s/%s",$_SERVER['HTTP_HOST'],$res['path_to_file']),
+				"imagePath" =>sprintf("%s%s",HOST,$res['path_to_file']),
 				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($res['title']),$res['product_code'])
 				];
 				array_push($response_saree,$saree);		
