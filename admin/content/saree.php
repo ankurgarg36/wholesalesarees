@@ -40,13 +40,13 @@ echo "<br>".$pass=sha1($e);
 	<tbody>
 	<?php
 	 
-	$data=mysql_query("SELECT * FROM tbl_saree") or die(mysql_error());
+	$data=mysqli_query($link,"SELECT * FROM tbl_saree") or die(mysql_error());
 	$i=1;
-	while($info=mysql_fetch_array($data))
+	while($info=mysqli_fetch_array($data))
 	{	
 		$id=$info['id'];
-		$material=mysql_fetch_array(mysql_query("SELECT * from tbl_material where id='$info[material]'"));
-		$color=mysql_fetch_array(mysql_query("SELECT * from tbl_color where id='$info[color]'"));		
+		$material=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material where id='$info[material]'"));
+		$color=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_color where id='$info[color]'"));
 		$opr="dashboard.php?page=saree&prid=4&x=".$id;
 	  ?>
       <tr>
@@ -93,8 +93,8 @@ if($_REQUEST['prid']==2)
  if(isset($_REQUEST['x']))
 	{
 		$id=$_REQUEST['x'];
- 		$result = mysql_query("select * from tbl_saree where id='$id'") or die(mysql_error());
-		$info = mysql_fetch_array($result);  
+ 		$result = mysqli_query($link,"select * from tbl_saree where id='$id'") or die(mysql_error());
+		$info = mysqli_fetch_array($result);
 		$button="Edit";
 		$button_id="submit1";
 		$label="Edit Saree Information";
@@ -226,8 +226,8 @@ if($_REQUEST['prid']==3)
 	$action=$c_value[0];
 	if($c_value[1]=="")
 	{
-				$query=mysql_query("SELECT max(product_code) FROM tbl_saree")or die(mysql_error());
-				$max_no=mysql_fetch_array($query);
+				$query=mysqli_query($link,"SELECT max(product_code) FROM tbl_saree")or die(mysql_error());
+				$max_no=mysqli_fetch_array($query);
 				if($max_no[0]=="")
 					 $product_code=100000001;
 				else 
@@ -254,7 +254,7 @@ $path_to_file=htmlspecialchars(mysql_escape_string($_POST['hidden_path_to_file']
 		meta_description,path_to_file,created_date) 
 				VALUES('$product_code','$title','$material','$price','$color','$purpose','$description','$meta_keywords',
 				'$meta_description','$path_to_file','$created_date')";
-		$result=mysql_query($sql) or die(mysql_error());
+		$result=mysqli_query($link,$sql) or die(mysql_error());
 		if($result==1)
 		$msg="Saree Added Successfully";
 		else
@@ -266,7 +266,7 @@ $path_to_file=htmlspecialchars(mysql_escape_string($_POST['hidden_path_to_file']
  		 $sql = "UPDATE  tbl_saree SET title = '$title',material = '$material',price = '$price',color = '$color',
 		 purpose = '$purpose',description = '$description',meta_keywords = '$meta_keywords',
 		 meta_description = '$meta_description',path_to_file = '$path_to_file' WHERE id = '$id'" ;	
-		$query= mysql_query($sql) or die(mysql_error());
+		$query= mysqli_query($link,$sql) or die(mysql_error());
 		if($query==1)
 		$msg="Information updated Successfully!";
 		else
@@ -285,7 +285,7 @@ if($_REQUEST['prid']==4)
 {
 		$id=$_REQUEST['x'];
  		 $sql = "DELETE from tbl_saree WHERE id = '$id'" ;	
-		$query= mysql_query($sql) or die(mysql_error());
+		$query= mysqli_query($link,$sql) or die(mysql_error());
 		if($query==1)
 		$msg="Record has been deleted form the Database";
 		else

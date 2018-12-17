@@ -69,7 +69,7 @@ class master_data_entry1
 				$parts = explode(":",$del);
 				$opr=$parts[0];
 				$s_id=$parts[1];
-				$delete=mysql_query("DELETE FROM $tbl_name WHERE 
+				$delete=mysqli_query($link,"DELETE FROM $tbl_name WHERE 
 				$del_col='$s_id'") or die(mysql_error());
 				if($delete==1)
 				return 1;

@@ -4,8 +4,8 @@ include("../connection/connection.php");
 $username=$_REQUEST['username'];
 echo $password=sha1($_REQUEST['password']);
 
-$data=mysql_query("SELECT * FROM  tbl_admin_login where username='$username' ")or die(mysql_error()); 
-	$info= mysql_fetch_array($data); 
+$data=mysqli_query($link,"SELECT * FROM  tbl_admin_login where username='$username' ")or die(mysql_error());
+	$info= mysqli_fetch_array($data);
 	echo "<br>".$info['password'];
 		if($password==$info['password'])
 	{

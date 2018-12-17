@@ -8,8 +8,8 @@
 		}
 		$response = array();
 		$q =sprintf("SELECT * FROM tbl_material WHERE product_type=%s",$type);
-		$q_material=mysql_query($q);
-		while($res_material=mysql_fetch_array($q_material)){
+		$q_material=mysqli_query($link,$q);
+		while($res_material=mysqli_fetch_array($q_material)){
 			$material = [
 				"id"=>$res_material['id'],
 				"materialType"=>$res_material['material_type'],
@@ -18,5 +18,5 @@
 		}	
 	$result = array();	
 	$result['data']=$response;	
-	echo json_encode($result);						
+	echo json_encode($result);
 ?>

@@ -4,12 +4,12 @@ if($_REQUEST['page']=="wholesalesarees-saree")
 {
 		if($_REQUEST['con']==1)
 		{
-			$material_infot=mysql_fetch_array(mysql_query("SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));	
+			$material_infot=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));
 			$page_title=$material_infot['material_type']." on wholesalesaree | online wedding Sarres";												
 		}	
 		else if($_REQUEST['con']==2)
 		{						
-			$color_info=mysql_fetch_array(mysql_query("SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
+			$color_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
 			$page_title=$color_info['color_name']." Color Sarees on wholesalesaree | online wedding Sarres | Sarees, Suits and Lengha";					 
 		}
 		else if($_REQUEST['con']==3)
@@ -26,8 +26,8 @@ if($_REQUEST['page']=="wholesalesarees-saree")
 		$page_title="wholesalesarees - Sarees";
 		$meta_desc="wholesalesarees, Latset Sarees, New Sarees, Latest Sarees Design";
 		$meta_keywords="";
-		$q_keywords=mysql_query("SELECT material_type from tbl_material WHERE product_type='1'");
-		while($find_keyword=mysql_fetch_array($q_keywords))
+		$q_keywords=mysqli_query($link,"SELECT material_type from tbl_material WHERE product_type='1'");
+		while($find_keyword=mysqli_fetch_array($q_keywords))
 		$meta_keywords=$meta_keywords.', '.$find_keyword['material_type'];			
 		$sarees_class="current";
 		$suit_class="";				
@@ -38,7 +38,7 @@ if($_REQUEST['page']=="wholesalesarees-saree")
 }
 else if($_REQUEST['page']=="wholesalesarees-saree-detail")
 {
-$infot=mysql_fetch_array(mysql_query("SELECT * from tbl_saree WHERE product_code='$_REQUEST[product_code]'"));	
+$infot=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_saree WHERE product_code='$_REQUEST[product_code]'"));
 $page_title="wholesalesaree.in - ".$infot['title'];
 $meta_desc=$infot['meta_description'];		
 $meta_keywords=$infot['meta_keywords'];
@@ -53,12 +53,12 @@ elseif($_REQUEST['page']=="wholesalesarees-suit")
 {
 		if($_REQUEST['con']==1)
 		{
-			$material_infot=mysql_fetch_array(mysql_query("SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));	
+			$material_infot=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));
 			$page_title=$material_infot['material_type']." on wholesalesaree | online Salwar Suit";												
 		}	
 		else if($_REQUEST['con']==2)
 		{						
-			$color_info=mysql_fetch_array(mysql_query("SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
+			$color_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
 			$page_title=$color_info['color_name']." Color Salwar Suit on wholesalesaree | online wedding Sarres | Sarees, Suits and Lengha";					 
 		}
 		else if($_REQUEST['con']==3)
@@ -75,8 +75,8 @@ elseif($_REQUEST['page']=="wholesalesarees-suit")
 		$page_title="wholesalesaree.in - Salwar Suit";
 		$meta_desc="wholesalesaree.in, Latset Sarees, New Sarees, Latest Sarees Design";	
 		$meta_keywords="";
-		$q_keywords=mysql_query("SELECT material_type from tbl_material WHERE product_type='2'");
-		while($find_keyword=mysql_fetch_array($q_keywords))
+		$q_keywords=mysqli_query($link,"SELECT material_type from tbl_material WHERE product_type='2'");
+		while($find_keyword=mysqli_fetch_array($q_keywords))
 		$meta_keywords=$meta_keywords.', '.$find_keyword['material_type'];				
 		$sarees_class="";
 		$suit_class="current";				
@@ -87,7 +87,7 @@ elseif($_REQUEST['page']=="wholesalesarees-suit")
 }
 else if($_REQUEST['page']=="wholesalesarees-suit-detail")
 {
-$infot=mysql_fetch_array(mysql_query("SELECT * from tbl_suit WHERE product_code='$_REQUEST[product_code]'"));	
+$infot=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_suit WHERE product_code='$_REQUEST[product_code]'"));
 $page_title="wholesalesaree.in - ".$infot['title'];
 $meta_desc=$infot['meta_description'];		
 $meta_keywords=$infot['meta_keywords'];
@@ -102,12 +102,12 @@ elseif($_REQUEST['page']=="wholesalesarees-lengha")
 {
 		if($_REQUEST['con']==1)
 		{
-			$material_infot=mysql_fetch_array(mysql_query("SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));	
+			$material_infot=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));
 			$page_title=$material_infot['material_type']." on wholesalesarees | online Salwar Suit";												
 		}	
 		else if($_REQUEST['con']==2)
 		{						
-			$color_info=mysql_fetch_array(mysql_query("SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
+			$color_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
 			$page_title=$color_info['color_name']." Color Lengha-Chunni on wholesalesarees | online wedding Sarres | Sarees, Suits and Lengha";					 
 		}
 		else if($_REQUEST['con']==3)
@@ -124,8 +124,8 @@ elseif($_REQUEST['page']=="wholesalesarees-lengha")
 		$page_title="wholesalesarees - Lengha-Chunni";
 		$meta_desc="wholesalesarees - Bridal Lengha,New Design Lengha";
 		$meta_keywords="";
-		$q_keywords=mysql_query("SELECT material_type from tbl_material WHERE product_type='3'");
-		while($find_keyword=mysql_fetch_array($q_keywords))
+		$q_keywords=mysqli_query($link,"SELECT material_type from tbl_material WHERE product_type='3'");
+		while($find_keyword=mysqli_fetch_array($q_keywords))
 		$meta_keywords=$meta_keywords.', '.$find_keyword['material_type'];		
 		$sarees_class="";
 		$suit_class="";				
@@ -136,7 +136,7 @@ elseif($_REQUEST['page']=="wholesalesarees-lengha")
 }
 else if($_REQUEST['page']=="wholesalesarees-lengha-detail")
 {
-$infot=mysql_fetch_array(mysql_query("SELECT * from tbl_lengha WHERE product_code='$_REQUEST[product_code]'"));	
+$infot=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_lengha WHERE product_code='$_REQUEST[product_code]'"));
 $page_title="wholesalesarees.in - ".$infot['title'];
 $meta_desc=$infot['meta_description'];		
 $meta_keywords=$infot['meta_keywords'];

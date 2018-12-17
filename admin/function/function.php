@@ -9,11 +9,11 @@ function getProductMaterial($name,$value,$condition,$required,$width)
 {
 
 	echo"<select name='$name' id='$name'  $required style='width:$width'>";
-$cat_type=mysql_query("select * from  tbl_material where product_type='$condition'") or die(mysql_error());
+$cat_type=mysqli_query($link,"select * from  tbl_material where product_type='$condition'") or die(mysql_error());
 
 if($value=="")
 echo "<option value='' selected>Select Material </option>";
-while($val=mysql_fetch_array($cat_type))
+while($val=mysqli_fetch_array($cat_type))
 {
 	if($value==$val['id'])
 	$sel="Selected";
@@ -30,11 +30,11 @@ echo"</select>";
 function getProductColor($name,$value,$condition,$required,$width)
 {
 	echo"<select name='$name' id='$name'  $required style='width:$width'>";
-$cat_type=mysql_query("select * from  tbl_color where product_type='$condition'") or die(mysql_error());
+$cat_type=mysqli_query($link,"select * from  tbl_color where product_type='$condition'") or die(mysql_error());
 
 if($value=="")
 echo "<option value='' selected>Select Color</option>";
-while($val=mysql_fetch_array($cat_type))
+while($val=mysqli_fetch_array($cat_type))
 {
 	if($value==$val['id'])
 	$sel="Selected";
@@ -252,9 +252,9 @@ function select_query($tbl_name,$id,$col_name)
 
 {
 
-	$find1=mysql_query("SELECT * from $tbl_name where $col_name='$id'") or die(mysql_error());
+	$find1=mysqli_query($link,"SELECT * from $tbl_name where $col_name='$id'") or die(mysql_error());
 
-	$info1=mysql_fetch_array($find1);
+	$info1=mysqli_fetch_array($find1);
 
 	return $info1;
 
@@ -310,14 +310,14 @@ function getLoan($name,$value,$name1)
 echo "<select name='$name' id='$name' class='validate[required]'>";	
 		if($value!="")
 		{	
-		$batch_name=mysql_query("select * from tbl_loan_issue WHERE name='$name1' And loan_id='$value'");
-		$val1=mysql_fetch_array($batch_name);
+		$batch_name=mysqli_query($link,"select * from tbl_loan_issue WHERE name='$name1' And loan_id='$value'");
+		$val1=mysqli_fetch_array($batch_name);
 		echo "<option value='$value' selected>$val1[amount]</option>";
 		}
 		else
 		echo "<option  value='' selected>Select Issue Amount</option>";
-$loan=mysql_query("select * from tbl_loan_issue WHERE name='$name1' ");
-while($val=mysql_fetch_array($loan))
+$loan=mysqli_query($link,"select * from tbl_loan_issue WHERE name='$name1' ");
+while($val=mysqli_fetch_array($loan))
 {
 echo "<option value='$val[loan_id]' selected>$val[amount]</option>";		
 }
@@ -330,14 +330,14 @@ function getBatch($name,$value)
 echo "<select name='$name' id='$name' class='validate[required]'>";	
 		if($value!="")
 		{	
-		$batch_name=mysql_query("select * from  tbl_batch where batch_id='$value'");
-		$val1=mysql_fetch_array($batch_name);
+		$batch_name=mysqli_query($link,"select * from  tbl_batch where batch_id='$value'");
+		$val1=mysqli_fetch_array($batch_name);
 		echo "<option value='$value' selected>$val1[batch_name]</option>";
 		}
 		else
 		echo "<option  value='' selected>Select Batch</option>";
-$batch=mysql_query("select * from  tbl_batch");
-while($val=mysql_fetch_array($batch))
+$batch=mysqli_query($link,"select * from  tbl_batch");
+while($val=mysqli_fetch_array($batch))
 {
 echo "<option value='$val[batch_id]' >$val[batch_name]</option>";		
 }
@@ -347,14 +347,14 @@ function getClass($name,$value)
 echo "<select name='$name' id='$name' class='validate[required]'>>"  ;	
 		if($value!="")
 		{
-		$class_name=mysql_query("select * from tbl_class where class_id='$value'");
-		$val1=mysql_fetch_array($class_name);
+		$class_name=mysqli_query($link,"select * from tbl_class where class_id='$value'");
+		$val1=mysqli_fetch_array($class_name);
 		echo "<option value='$value' selected>$val1[class_name]</option>";
 		}
 		else
 		echo "<option value='' selected>Select Class</option>";
-$class=mysql_query("select * from tbl_class");
-while($val2=mysql_fetch_array($class))
+$class=mysqli_query($link,"select * from tbl_class");
+while($val2=mysqli_fetch_array($class))
 {
 	echo "<option value='$val2[class_id]'>$val2[class_name]</option>";
 	}
@@ -365,14 +365,14 @@ function getName($name,$value,$status,$loan_status,$username)
 echo "<select name='$name' id='$name' class='validate[required]'>"  ;	
 		if($value!="")
 		{
-		$section_name=mysql_query("select * from tbl_borrower_info where id='$value'");
-		$val1=mysql_fetch_array($section_name);
+		$section_name=mysqli_query($link,"select * from tbl_borrower_info where id='$value'");
+		$val1=mysqli_fetch_array($section_name);
 		echo "<option value='$value' selected>$val1[name]</option>";
 		}
 		else
 		echo "<option value=''>Select Name</option>";
-$section=mysql_query("select * from tbl_borrower_info where status='$status' AND loan_status='$loan_status' AND user_by='$username' ");
-while($val=mysql_fetch_array($section))
+$section=mysqli_query($link,"select * from tbl_borrower_info where status='$status' AND loan_status='$loan_status' AND user_by='$username' ");
+while($val=mysqli_fetch_array($section))
 {
 	echo "<option value='$val[id]' >$val[name]</option>";
 	}
@@ -382,14 +382,14 @@ function getAdmissionNo($name,$value,$school_code)
 echo "<select name='$name' id='$name' class='validate[required]'>>"  ;	
 		if($value!="")
 		{
-		$admission_no=mysql_query("select * from tbl_student_info where admission_no='$value'");
-		$val1=mysql_fetch_array($admission_no);
+		$admission_no=mysqli_query($link,"select * from tbl_student_info where admission_no='$value'");
+		$val1=mysqli_fetch_array($admission_no);
 		echo "<option value='$value' selected>$val1[admission_no]</option>";
 		}
 		else
 		echo "<option selected>Select Admission No</option>";
-$admission_no1=mysql_query("select * from tbl_student_info WHERE school_code='$school_code'");
-while($val=mysql_fetch_array($admission_no1))
+$admission_no1=mysqli_query($link,"select * from tbl_student_info WHERE school_code='$school_code'");
+while($val=mysqli_fetch_array($admission_no1))
 {
 	echo "<option value='$val[admission_no]'>$val[admission_no]</option>";
 	}
@@ -404,12 +404,12 @@ function getSubject($name,$value,$fun_no,$ch)
 echo $ch;
 echo"<select name='$name' id='$name' style='width:180px;' class='validate[required]' onchange='getSubject(this.value,$fun_no)'>";
 
-	$course=mysql_query("select * from  tbl_du_subject");
+	$course=mysqli_query($link,"select * from  tbl_du_subject");
 
 	if($value!="")
 	{
 	
-$val_sub=mysql_fetch_array(mysql_query("select * from  tbl_du_subject where subject_code='$value'"));
+$val_sub=mysqli_fetch_array(mysqli_query($link,"select * from  tbl_du_subject where subject_code='$value'"));
 	echo "<option value='$value'>$val_sub[subject_name]</option>";
 		
 	}	else
@@ -420,7 +420,7 @@ $val_sub=mysql_fetch_array(mysql_query("select * from  tbl_du_subject where subj
 
 	}
 
-	while($val=mysql_fetch_array($course))
+	while($val=mysqli_fetch_array($course))
 
 	echo "<option value='$val[subject_code]'>$val[subject_name]</option>";
 

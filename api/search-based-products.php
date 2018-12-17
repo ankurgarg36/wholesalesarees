@@ -14,11 +14,11 @@
 		$table = sprintf("tbl_%s",$category);
 		if(!empty($material)){
 			$q =sprintf("SELECT * FROM tbl_%s WHERE material=%s",$category,$material);	
-			$material_info=mysql_fetch_array(mysql_query("SELECT * from tbl_material WHERE id='$material'"));
+			$material_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material WHERE id='$material'"));
 			$searchTitle=sprintf("You Searched for %s",$material_info['material_type']);
 		}else if(!empty($color)){
 			$q =sprintf("SELECT * FROM tbl_%s WHERE color=%s",$category,$color);
-			$color_info=mysql_fetch_array(mysql_query("SELECT * from tbl_color WHERE id='$color'"));
+			$color_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_color WHERE id='$color'"));
 			$searchTitle=sprintf("%s Color %s",$color_info['color_name'],$category);	
 		}else if(!empty($price)){
 			$searchTitle=sprintf("%s for selected price range",$category);	
@@ -34,8 +34,8 @@
 			$q =sprintf("SELECT * FROM tbl_%s",$category);	
 			$searchTitle=$category;	
 		}
-		$q_s=mysql_query($q);
-		while($q_saree=mysql_fetch_array($q_s)){
+		$q_s=mysqli_query($link,$q);
+		while($q_saree=mysqli_fetch_array($q_s)){
 		$saree = [
 				"id"=>$q_saree['id'],
 				"categoryTitle"=>'Saree',
@@ -46,7 +46,7 @@
 				"price"=>$q_saree['price'],
 				"purpose"=>$q_saree['purpose'],
 				"detail"=>$q_saree['description'],
-				"imagePath" =>sprintf("%s%s",HOST,$q_saree['path_to_file']),
+				"imagePath" =>sprintf("%s/%s",HOST,$q_saree['path_to_file']),
 				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($q_saree['title']),$q_saree['product_code'])
 				];
 				array_push($response,$saree);

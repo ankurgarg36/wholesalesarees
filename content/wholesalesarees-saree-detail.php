@@ -1,8 +1,8 @@
 <?php
 $product_code=$_REQUEST['product_code'];
-$info=mysql_fetch_array(mysql_query("SELECT * from tbl_saree WHERE product_code='$product_code'"));
-$material_info=mysql_fetch_array(mysql_query("SELECT * from tbl_material WHERE id='$info[material]'"));
-$color_info=mysql_fetch_array(mysql_query("SELECT * from tbl_color WHERE id='$info[color]'"));
+$info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_saree WHERE product_code='$product_code'"));
+$material_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material WHERE id='$info[material]'"));
+$color_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_color WHERE id='$info[color]'"));
 list($width, $height, $type, $attr) = getimagesize($info['path_to_file']);
 /*echo "Image width " .$width;
 echo "<BR>";
@@ -50,13 +50,13 @@ echo "Attribute " .$attr;*/
 
 
 	<?php
-$query=mysql_query("SELECT * FROM tbl_saree WHERE material='$info[material]' and product_code!='$product_code' order by created_date LIMIT 10");
+$query=mysqli_query($link,"SELECT * FROM tbl_saree WHERE material='$info[material]' and product_code!='$product_code' order by created_date LIMIT 10");
 $i=1;
 if(mysql_num_rows($query)!=0){
 ?>
 	 <h3>May we also suggest</h3>
 <?php 
-while($res=mysql_fetch_array($query))
+while($res=mysqli_fetch_array($query))
 {
 ?>
 		<div class="product_box">

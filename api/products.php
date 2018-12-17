@@ -16,10 +16,10 @@
 			$startFrom = ($page-1)*$limit;
 			$q ="SELECT * FROM ".$table." LIMIT ".$startFrom.",".$limit;
 		}
-		$count = mysql_fetch_row(mysql_query("SELECT count(*) FROM ".$table));
+		$count = mysqli_fetch_row(mysqli_query($link,"SELECT count(*) FROM ".$table));
 		$total_records = $count[0];
-$q_s=mysql_query($q);
-		while($q_saree=mysql_fetch_array($q_s)){
+$q_s=mysqli_query($link,$q);
+		while($q_saree=mysqli_fetch_array($q_s)){
 		$saree = [
 				"id"=>$q_saree['id'],
 				"categoryTitle"=>'Saree',
@@ -30,7 +30,7 @@ $q_s=mysql_query($q);
 				"price"=>$q_saree['price'],
 				"purpose"=>$q_saree['purpose'],
 				"detail"=>$q_saree['description'],
-				"imagePath" =>sprintf("%s%s",HOST,$q_saree['path_to_file']),
+				"imagePath" =>sprintf("%s/%s",HOST,$q_saree['path_to_file']),
 //				"imagePath" =>sprintf("%s/wholesalesarees/%s",$_SERVER['HTTP_HOST'],$q_saree['path_to_file']),
 				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($q_saree['title']),$q_saree['product_code']),
 				"quantity"=>1

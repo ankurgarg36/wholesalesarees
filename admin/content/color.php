@@ -34,9 +34,9 @@ if($_REQUEST['prid']==1)
 	<tbody>
 	<?php
 	 
-	$data=mysql_query("SELECT * FROM tbl_color order by product_type") or die(mysql_error());
+	$data=mysqli_query($link,"SELECT * FROM tbl_color order by product_type") or die(mysql_error());
 	$i=1;
-	while($info=mysql_fetch_array($data))
+	while($info=mysqli_fetch_array($data))
 	{	
 		$id=$info['id'];
 		$opr="dashboard.php?page=col&prid=4&x=".$id;
@@ -75,8 +75,8 @@ if($_REQUEST['prid']==2)
  if(isset($_REQUEST['x']))
 	{
 		$id=$_REQUEST['x'];
- 		$result = mysql_query("select * from tbl_color where id='$id'") or die(mysql_error());
-		$info = mysql_fetch_array($result);  
+ 		$result = mysqli_query($link,"select * from tbl_color where id='$id'") or die(mysql_error());
+		$info = mysqli_fetch_array($result);
 		$button="Edit";
 		$button_id="submit1";
 		$label="Edit Color Information";
@@ -146,7 +146,7 @@ if($_REQUEST['prid']==3)
 	if($action=="add")
 	{
  		$sql="INSERT INTO tbl_color (product_type,color_name,created_date) VALUES('$product_type','$color_name','$created_date')";
-		$result=mysql_query($sql);
+		$result=mysqli_query($link,$sql);
 		if($result==1)
 		$msg="Material Information Added Successfully";
 		else
@@ -156,7 +156,7 @@ if($_REQUEST['prid']==3)
 	{
 		$id=$c_value[1];
  		 $sql = "UPDATE  tbl_color SET product_type = '$product_type', color_name = '$color_name' WHERE id = '$id'" ;	
-		$query= mysql_query($sql) or die(mysql_error());
+		$query= mysqli_query($link,$sql) or die(mysql_error());
 		if($query==1)
 		$msg="Information updated Successfully!";
 		else
@@ -175,7 +175,7 @@ if($_REQUEST['prid']==4)
 {
 		$id=$_REQUEST['x'];
  		 $sql = "DELETE from tbl_color WHERE id = '$id'" ;	
-		$query= mysql_query($sql) or die(mysql_error());
+		$query= mysqli_query($link,$sql) or die(mysql_error());
 		if($query==1)
 		$msg="Record has been deleted form the Database";
 		else

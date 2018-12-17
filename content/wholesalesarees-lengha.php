@@ -24,7 +24,7 @@ else if(val=='')
 					$col=0;
 					$price="";
 					$query="SELECT * FROM tbl_lengha WHERE material='$_REQUEST[value]'";
-					$material_info=mysql_fetch_array(mysql_query("SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));
+					$material_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material WHERE id='$_REQUEST[value]'"));
 					$title="You Searched for ".$material_info['material_type'];
 					$page_title=$material_info['material_type']." on WholeSaleSaree | online wedding Lengha-Chunni";					
 					
@@ -35,7 +35,7 @@ else if(val=='')
 					$col=$_REQUEST['value'];	
 					$price="";							
 					 $query="SELECT * FROM tbl_lengha WHERE color='$_REQUEST[value]'";
-					$color_info=mysql_fetch_array(mysql_query("SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
+					$color_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_color WHERE id='$_REQUEST[value]'"));
 					$title=$color_info['color_name']." Color Lengha-Chunni";					 
 			}
 			else if($_REQUEST['con']==3)
@@ -79,13 +79,13 @@ else if(val=='')
       <div class="tours gallery" >
       
             <?php 
-			 $q=mysql_query($query);
+			 $q=mysqli_query($link,$query);
 										
 				$i=1;            
             $j=1; 
     if(mysql_num_rows($q)!=0)
     {
-				while($info=mysql_fetch_array($q))
+				while($info=mysqli_fetch_array($q))
 				{
 					if($i % 2==0)
 						$class="grid_4 omega";
@@ -134,8 +134,8 @@ else if(val=='')
             <select name="material" id="material" onchange="refreshPage(this.value,this.id)">
               <option value="" selected="selected" >All</option>
 			<?php
-$cat_type=mysql_query("select * from  tbl_material where product_type='3'") or die(mysql_error());
-while($val=mysql_fetch_array($cat_type))
+$cat_type=mysqli_query($link,"select * from  tbl_material where product_type='3'") or die(mysql_error());
+while($val=mysqli_fetch_array($cat_type))
 {
 	if($mat==$val['id'])
 	$sel="Selected";
@@ -151,8 +151,8 @@ while($val=mysql_fetch_array($cat_type))
             <select name="color" id="color" onchange="refreshPage(this.value,this.id)">
               <option value="" selected="selected" >All</option>
 			<?php
-$color=mysql_query("select * from  tbl_color where product_type='3'") or die(mysql_error());
-while($val=mysql_fetch_array($color))
+$color=mysqli_query($link,"select * from  tbl_color where product_type='3'") or die(mysql_error());
+while($val=mysqli_fetch_array($color))
 {
 	if($col==$val['id'])
 	$sel="Selected";

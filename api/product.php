@@ -11,8 +11,8 @@
 		$table = sprintf("tbl_%s",$category);
 		$q =sprintf("SELECT * FROM %s WHERE product_code=%s",$table,$code);
 
-		$q_s=mysql_query($q);
-		$q_saree=mysql_fetch_array($q_s);
+		$q_s=mysqli_query($link,$q);
+		$q_saree=mysqli_fetch_array($q_s);
 		$result = array();
 		$result['data']=[];
 		if(!$q_saree){
@@ -29,7 +29,7 @@
 				"price"=>$q_saree['price'],
 				"purpose"=>$q_saree['purpose'],
 				"detail"=>$q_saree['description'],
-				"imagePath" =>sprintf("%s%s",HOST,$q_saree['path_to_file']),
+				"imagePath" =>sprintf("%s/%s",HOST,$q_saree['path_to_file']),
 				"url"=>sprintf('/product/%s/%s/%s',$category,getCleanUrl($q_saree['title']),$q_saree['product_code']),
 				"quantity" => 1,
 
@@ -40,8 +40,8 @@
 	$response_saree = [];	
 	$query_suggest = sprintf("SELECT * FROM %s WHERE material=%s AND product_code!=%s order by created_date LIMIT 10",$table,$q_saree['material'],$code);
 	//$query_suggest = sprintf("SELECT * FROM %s WHERE  product_code!=%s order by created_date LIMIT 10",$table,$q_saree['material'],$code);
-	$query=mysql_query($query_suggest);
-	while($res=mysql_fetch_array($query))
+	$query=mysqli_query($link,$query_suggest);
+	while($res=mysqli_fetch_array($query))
 	{
 		$saree = [
 				"id"=>$res['id'],

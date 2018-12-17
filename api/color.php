@@ -8,8 +8,8 @@
 		}
 		$response = array();
 		$q =sprintf("SELECT * FROM tbl_color WHERE product_type=%s",$type);
-		$q_color=mysql_query($q);
-		while($res_color=mysql_fetch_array($q_color)){
+		$q_color=mysqli_query($link,$q);
+		while($res_color=mysqli_fetch_array($q_color)){
 			$color = [
 				"id"=>$res_color['id'],
 				"color"=>$res_color['color_name'],

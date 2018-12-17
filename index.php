@@ -204,7 +204,7 @@ setlocale(LC_MONETARY, 'en_IN');
 		<div class="boxes">
 		<div class="grid_4">
 		<?php
-		$q_saree=mysql_fetch_array(mysql_query("SELECT * FROM tbl_saree where id=(SELECT max(id) from tbl_saree)"));		
+		$q_saree=mysqli_fetch_array(mysqli_query($link,"SELECT * FROM tbl_saree where id=(SELECT max(id) from tbl_saree)"));
 		?>
 					<figure>
 						<div>
@@ -218,7 +218,7 @@ setlocale(LC_MONETARY, 'en_IN');
 				</div>
 				<div class="grid_4">
 		<?php
-		$q_suit=mysql_fetch_array(mysql_query("SELECT * FROM tbl_suit where id=(SELECT max(id) from tbl_suit)"));		
+		$q_suit=mysqli_fetch_array(mysqli_query($link,"SELECT * FROM tbl_suit where id=(SELECT max(id) from tbl_suit)"));
 		?>				
 					<figure>
 						<div>					
@@ -232,7 +232,7 @@ setlocale(LC_MONETARY, 'en_IN');
 				</div>
 				<div class="grid_4">
 		<?php
-		$q_lengha=mysql_fetch_array(mysql_query("SELECT * FROM tbl_lengha where id=(SELECT max(id) from tbl_lengha)"));		
+		$q_lengha=mysqli_fetch_array(mysqli_query($link,"SELECT * FROM tbl_lengha where id=(SELECT max(id) from tbl_lengha)"));
 		?>				
 					<figure>
 						<div>					
@@ -259,9 +259,9 @@ setlocale(LC_MONETARY, 'en_IN');
 
 	<div class="tab_cont" id="tabs-1">
 <?php
-$q=mysql_query("SELECT * FROM tbl_saree ORDER BY RAND() LIMIT 10");
+$q=mysqli_query($link,"SELECT * FROM tbl_saree ORDER BY RAND() LIMIT 10");
 $i=1;
-while($info=mysql_fetch_array($q))
+while($info=mysqli_fetch_array($q))
 {
 ?>
 		<div class="product_box">
@@ -291,9 +291,9 @@ $i++;
 <!-- Suit Start -->	
 	<div class="tab_cont" id="tabs-2">
 <?php
-$q=mysql_query("SELECT * FROM tbl_suit ORDER BY RAND() LIMIT 10");
+$q=mysqli_query($link,"SELECT * FROM tbl_suit ORDER BY RAND() LIMIT 10");
 $i=1;
-while($info_suit=mysql_fetch_array($q))
+while($info_suit=mysqli_fetch_array($q))
 {
 ?>
 		<div class="product_box">
@@ -324,9 +324,9 @@ $i++;
 <!-- Suit Start -->	
 	<div class="tab_cont" id="tabs-3">
 <?php
-$q=mysql_query("SELECT * FROM tbl_lengha ORDER BY RAND() LIMIT 10");
+$q=mysqli_query($link,"SELECT * FROM tbl_lengha ORDER BY RAND() LIMIT 10");
 $i=1;
-while($info_lengha=mysql_fetch_array($q))
+while($info_lengha=mysqli_fetch_array($q))
 {
 ?>
 		<div class="product_box">
