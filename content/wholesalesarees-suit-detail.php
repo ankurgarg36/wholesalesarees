@@ -1,4 +1,5 @@
 <?php
+include('admin/connection/connection.php');
 $product_code=$_REQUEST['product_code'];
 $info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_suit WHERE product_code='$product_code'"));
 $material_info=mysqli_fetch_array(mysqli_query($link,"SELECT * from tbl_material WHERE id='$info[material]'"));
@@ -53,7 +54,7 @@ echo "Attribute " .$attr;*/
 	<?php
 $query=mysqli_query($link,"SELECT * FROM tbl_suit WHERE material='$info[material]' and product_code!='$product_code' order by created_date LIMIT 10");
 $i=1;
-if(mysql_num_rows($query)!=0){
+if(mysqli_num_rows($query)!=0){
 ?>
 	 <h3>May we also suggest</h3>
 <?php 

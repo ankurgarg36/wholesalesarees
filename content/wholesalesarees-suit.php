@@ -18,6 +18,7 @@ else if(val=='')
 }
 </script>
 <?php
+include('admin/connection/connection.php');
 			if($_REQUEST['con']==1)
 			{
 					$mat=$_REQUEST['value'];
@@ -79,7 +80,7 @@ else if(val=='')
 										
 				$i=1;            
             $j=1; 
-    if(mysql_num_rows($q)!=0)
+    if(mysqli_num_rows($q)!=0)
     {
 				while($info=mysqli_fetch_array($q))
 				{
